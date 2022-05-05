@@ -2,7 +2,7 @@
 	"name": "chat",
 	"version": "1.0.0",
 	"main": "dist/index.js",
-	"license": "AGPL3.0",
+	"license": "AGPL-3.0-only",
 	"private": false,
 	"scripts": {
 		"dev": "ts-node src/index.ts",
@@ -20,6 +20,9 @@
 	},
 	"dependencies": {
 		"express": "^4.18.1",
+		"pg": "^8.7.3",
+		"reflect-metadata": "^0.1.13",
+		"typeorm": "^0.3.6",
 		"ws": "^8.6.0"
 	}
 }

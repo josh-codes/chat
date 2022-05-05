@@ -6,6 +6,14 @@
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
-		"outDir": "./dist",
-	}
+		/* 
+		Experimental decorators allow you to use decorators on classses and methods.
+		(TypeORM)
+		*/
+		"experimentalDecorators": true,
+		"outDir": "./dist"
+	},
+	"include": [
+		"src/**/*"
+	]
 }
