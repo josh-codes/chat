@@ -11,6 +11,11 @@
 		(TypeORM)
 		*/
 		"experimentalDecorators": true,
+		/*
+		Emitting declorators allows typescript to infer the type of the decorator.
+		(TypeORM)
+		*/
+		"emitDecoratorMetadata": true,
 		"outDir": "./dist"
 	},
 	"include": [

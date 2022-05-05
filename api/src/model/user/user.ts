@@ -1,6 +1,5 @@
-
-
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany } from 'typeorm';
+import { UserSessionModel } from './session';
 
 export enum UserModelRole {
 	SYSTEM_ADMINISTRATOR = 'SYS_ADMIN',
@@ -46,6 +45,12 @@ export class UserModel extends BaseEntity {
 	})
 		emailVerified!: boolean;
 
+	/** The email verification code (nullable) [PLEASE ONLY USE ONCE] */
+	@Column({
+		nullable: true
+	})
+		emailVerificationCode!: number;
+	
 	/** The users display name (nullable) */
 	@Column()
 		nickname!: string;
@@ -77,4 +82,15 @@ export class UserModel extends BaseEntity {
 		nullable: true
 	})
 		passwordSalt!: string;
+
+	/** How many login attempts the user has made [Max = 6] [Resets after a succsesful login] */
+	@Column({
+		default: 0,
+		nullable: false
+	})
+		loginAttempts!: number;
+	
+	/** The Sessions the user has */
+	@OneToMany(() => UserSessionModel, (userSession) => userSession.user)
+		sessions!: UserSessionModel[];
 }
