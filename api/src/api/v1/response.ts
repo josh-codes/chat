@@ -1,11 +1,24 @@
 import { DataObject } from './utils';
 
+export enum ResponseCode {
+	/** Success */
+	OK = 200,
+	/** Bad request from the client */
+	BAD_REQ = 400,
+	/** Not logged in / No CSRF / Verification code required */
+	UNAUTHORIZED = 401,
+	/** If the server does not want to prosses the request (Too many password/OTP attempts) */
+	FORBIDDEN = 403,
+	/** If an unexpected internal server error happens */
+	INTERNAL_ERR = 500
+}
+
 export class Response<T = DataObject> {
-	// Type
-	private code: 200 | 400 | 401 | 500;
-	// Message
+	/** Type */
+	private code: ResponseCode;
+	/** Message */
 	private message: string | undefined;
-	// Data
+	/** Data */
 	private data: T;
 
 	/**
@@ -15,7 +28,7 @@ export class Response<T = DataObject> {
 	 * @param message A message to be sent or undefined
 	 */
 	public constructor(
-		code: 200 | 400 | 401 | 500,
+		code: ResponseCode,
 		data: T,
 		message: string | undefined = undefined
 	) {
