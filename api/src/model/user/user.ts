@@ -1,5 +1,5 @@
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany } from 'typeorm';
-import { UserSessionModel } from './session';
+import { UserSessionModel } from './Session';
 
 export enum UserModelRole {
 	SYSTEM_ADMINISTRATOR = 'SYS_ADMIN',
