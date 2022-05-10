@@ -2,8 +2,8 @@ import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import { config } from 'dotenv';
 
-import { UserModel } from './user/user';
-import { UserSessionModel } from './user/session';
+import { UserModel } from './user/User';
+import { UserSessionModel } from './user/Session';
 
 // Load the local env
 config();

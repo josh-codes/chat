@@ -1,5 +1,5 @@
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne } from 'typeorm';
-import { UserModel } from './user';
+import { UserModel } from './User';
 
 @Entity()
 export class UserSessionModel extends BaseEntity {
