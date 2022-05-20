@@ -2,7 +2,7 @@ import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, M
 import { UserModel } from './User';
 
 @Entity()
-export class UserSessionModel extends BaseEntity {
+export class SessionModel extends BaseEntity {
 	/** The random unique session ID */
 	@PrimaryGeneratedColumn('uuid')
 		id!: string;
@@ -12,6 +12,12 @@ export class UserSessionModel extends BaseEntity {
 		nullable: false
 	})
 		token!: string;
+	
+	/** The time the token expires */
+	@Column({
+		nullable: false
+	})
+		tokenExpiration!: Date;
 
 	/** The refresh token/password */
 	@Column({
@@ -19,24 +25,24 @@ export class UserSessionModel extends BaseEntity {
 	})
 		refreshToken!: string;
 	
-	/** The UserAgent of the user */
+	/** The CSRF token (nullable) [PLEASE ONLY USE ONCE] */
 	@Column({
-		nullable: false
+		nullable: true
 	})
-		userAgent!: string;
+		csrfToken!: string;
 
-	/** The 6 diget verification code (nullable) [PLEASE ONLY USE ONCE] */
+	/** The 6 digit verification code (nullable) [PLEASE ONLY USE ONCE] */
 	@Column({
 		nullable: true
 	})
 		verificationCode!: number;
-	
-	/** Wether verifacion is required */
+
+	/** How many times the verification code has been entered incorrectly [MAX = 6] [RESET AFTER VERIFICATION] */
 	@Column({
-		default: true,
+		default: 0,
 		nullable: false
 	})
-		verificationRequired!: boolean;
+		verificationAttempts!: number;
 
 	/** When the session was created */
 	@CreateDateColumn()

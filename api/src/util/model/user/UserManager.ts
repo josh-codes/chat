@@ -1,5 +1,5 @@
-import { AppDB } from '../../model';
-import { UserModel } from '../../model/user/User';
+import { AppDB } from '../../../model';
+import { UserModel } from '../../../model/user/User';
 import { User } from './User';
 
 export class UserManager {

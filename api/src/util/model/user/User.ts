@@ -1,4 +1,4 @@
-import { UserModel } from '../../model/user/User';
+import { UserModel } from '../../../model/user/User';
 
 export class User {
 	/** The user id */

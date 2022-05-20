@@ -1,5 +1,5 @@
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany } from 'typeorm';
-import { UserSessionModel } from './Session';
+import { SessionModel } from './Session';
 
 export enum UserModelRole {
 	SYSTEM_ADMINISTRATOR = 'SYS_ADMIN',
@@ -91,6 +91,6 @@ export class UserModel extends BaseEntity {
 		loginAttempts!: number;
 	
 	/** The Sessions the user has */
-	@OneToMany(() => UserSessionModel, (userSession) => userSession.user)
-		sessions!: UserSessionModel[];
+	@OneToMany(() => SessionModel, (userSession) => userSession.user)
+		sessions!: SessionModel[];
 }

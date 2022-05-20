@@ -49,7 +49,6 @@ export class Request {
 			) ||
 			typeof obj.language !== 'string'
 		) return;
-		console.log(objUnknown);
 		// Return a new request
 		return new Request(
 			obj.action,

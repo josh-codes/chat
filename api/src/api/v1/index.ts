@@ -2,6 +2,10 @@ import { Express } from 'express';
 import { DataObject } from './utils';
 import { Request } from './request';
 import { Response } from './response';
+import { config } from 'dotenv';
+
+// Load environment variables
+config();
 
 interface RouteConfig {
 	path: string;

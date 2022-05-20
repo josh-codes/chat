@@ -3,7 +3,7 @@ import { DataSource } from 'typeorm';
 import { config } from 'dotenv';
 
 import { UserModel } from './user/User';
-import { UserSessionModel } from './user/Session';
+import { SessionModel } from './user/Session';
 
 // Load the local env
 config();
@@ -21,6 +21,6 @@ export const AppDB = new DataSource({
 	logging: false,
 	entities: [
 		UserModel,
-		UserSessionModel
+		SessionModel
 	]
 });
